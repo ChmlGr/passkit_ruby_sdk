@@ -43,7 +43,7 @@ module PasskitSdk
       # Lists all the tiers.
       rpc :listTiersDeprecated, ListRequestDeprecated, stream(Tier)
       # Lists all the tiers.
-      rpc :listTiers, ListRequest, stream(Tier)
+      rpc :listTiers, Members::ListRequest, stream(Tier)
       # Enrols a new member into a tier of a program. Returns the PassKit Member ID.
       rpc :enrolMember, Member, Io::Id
       # Enrols a new member into the default tier (lowest tier index) of a program. Returns the PassKit Member ID.
@@ -52,8 +52,8 @@ module PasskitSdk
       rpc :getMemberRecordByExternalId, MemberRecordByExternalIdRequest, Member
       rpc :checkInMember, MemberCheckInOutRequest, Google::Protobuf::Empty
       rpc :checkOutMember, MemberCheckInOutRequest, Google::Protobuf::Empty
-      rpc :listMembersDeprecated, ListRequestDeprecated, stream(Member)
-      rpc :listMembers, ListRequest, stream(Member)
+      rpc :listMembersDeprecated, Members::ListRequestDeprecated, stream(Member)
+      rpc :listMembers, Members::ListRequest, stream(Member)
       rpc :updateMember, Member, Io::Id
       # @todo: define callback
       rpc :earnPoints, EarnBurnPointsRequest, MemberPoints
@@ -63,16 +63,16 @@ module PasskitSdk
       rpc :updateMembersBySegment, MemberSegmentRequest, Google::Protobuf::Empty
       rpc :deleteMembersBySegment, MemberSegmentRequest, Google::Protobuf::Empty
       rpc :deleteMember, Member, Google::Protobuf::Empty
-      rpc :countMembersDeprecated, ListRequestDeprecated, Io::Count
-      rpc :countMembers, ListRequest, Io::Count
+      rpc :countMembersDeprecated, Members::ListRequestDeprecated, Io::Count
+      rpc :countMembers, Members::ListRequest, Io::Count
       rpc :getMessageHistoryForMember, Io::Pagination, stream(Io::Message)
       rpc :getMetaKeysForProgram, Io::Id, Io::Strings
       rpc :renewMembersExpiry, UpdateExpiryRequest, Io::Count
-      rpc :countMemberEvents, ListRequest, Io::Count
-      rpc :listMemberEvents, ListRequest, stream(MemberEvent)
+      rpc :countMemberEvents, Members::ListRequest, Io::Count
+      rpc :listMemberEvents, Members::ListRequest, stream(MemberEvent)
       rpc :getMemberEventMetaKeysForProgram, Io::Id, Io::Strings
       rpc :listEventsForMember, Io::Id, stream(MemberEvent)
-      rpc :deleteMemberEvents, ListRequest, Google::Protobuf::Empty
+      rpc :deleteMemberEvents, Members::ListRequest, Google::Protobuf::Empty
       rpc :deleteEventsForMember, Io::Id, Google::Protobuf::Empty
       rpc :deleteMemberEvent, Io::Id, Google::Protobuf::Empty
     end

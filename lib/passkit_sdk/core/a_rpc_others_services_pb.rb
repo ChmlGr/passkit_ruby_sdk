@@ -95,8 +95,8 @@ module PasskitSdk
         rpc :deleteIntegrations, ProtocolIdInput, Google::Protobuf::Empty
         rpc :createSinkSubscription, SinkSubscription, Id
         rpc :getSinkSubscription, SubscriptionRequest, SinkSubscription
-        rpc :listSinkSubscriptionsDeprecated, ListRequestDeprecated, stream(SinkSubscription)
-        rpc :listSinkSubscriptions, ListRequest, stream(SinkSubscription)
+        rpc :listSinkSubscriptionsDeprecated, Io::ListRequestDeprecated, stream(SinkSubscription)
+        rpc :listSinkSubscriptions, Io::ListRequest, stream(SinkSubscription)
         rpc :updateSinkSubscription, SinkSubscription, Id
         rpc :deleteSinkSubscription, SubscriptionRequest, Google::Protobuf::Empty
         rpc :getSampleSubscriptionEvent, Id, SinkSubscription

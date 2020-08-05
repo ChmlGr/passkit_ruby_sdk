@@ -37,10 +37,10 @@ module PasskitSdk
       rpc :getCouponById, Io::Id, Coupon
       rpc :getCouponByExternalId, ExternalIdRequest, Coupon
       rpc :voidCoupon, Coupon, Google::Protobuf::Empty
-      rpc :listCouponsByCouponCampaignDeprecated, ListRequestDeprecated, stream(Coupon)
-      rpc :listCouponsByCouponCampaign, ListRequest, stream(Coupon)
-      rpc :countCouponsByCouponCampaignDeprecated, ListRequestDeprecated, Io::Count
-      rpc :countCouponsByCouponCampaign, ListRequest, Io::Count
+      rpc :listCouponsByCouponCampaignDeprecated, SingleUseCoupons::ListRequestDeprecated, stream(Coupon)
+      rpc :listCouponsByCouponCampaign, SingleUseCoupons::ListRequest, stream(Coupon)
+      rpc :countCouponsByCouponCampaignDeprecated, SingleUseCoupons::ListRequestDeprecated, Io::Count
+      rpc :countCouponsByCouponCampaign, SingleUseCoupons::ListRequest, Io::Count
       rpc :copyCouponCampaign, CampaignCopyRequest, Io::Id
       rpc :getMetaKeysForCampaign, Io::Id, Io::Strings
     end
